@@ -4,6 +4,7 @@
   "description": "learning how to make api with node express and MySQL",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.jsnop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/GentleWinter/node_learn"
   },
-  "homepage": "https://github.com/GentleWinter/node_learn"
+  "homepage": "https://github.com/GentleWinter/node_learn",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
