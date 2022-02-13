@@ -1,3 +1,4 @@
+const req = require("express/lib/request");
 const moment = require(`moment`);
 const { conexao } = require("../infra/tabelas");
 
@@ -68,6 +69,21 @@ class Atendimentos {
                 res.status(200).json(resultados);
             }
         })
+    }
+
+    altera(id, valores, res){
+        if(valores.data){
+            valores.data = moment(valores.data, `DD/MM/YYYY HH:MM:ss`).format(`YYYY-MM-DD HH:MM:ss`);
+        }
+        const sql = `UPDATE Atendimentos SET ? WHERE id=?`;
+
+        conexao.query(sql, [valores, id], (erro, resultados) =>{
+            if(erro){
+                res.status(400).json(erro);
+            } else{
+                res.status(200).json(resultados);
+            }
+        });
     }
 }
 

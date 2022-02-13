@@ -1,4 +1,5 @@
 const res = require("express/lib/response");
+const { conexao } = require("../infra/tabelas");
 const Atendimentos = require(`../models/atendimentos`);
 
 module.exports = app => {
@@ -16,5 +17,12 @@ module.exports = app => {
         const atendimento = req.body;
 
         Atendimentos.adiciona(atendimento, res);
+    });
+
+    app.patch(`/atendimentos/:id`, (req, res)=> {
+        const id = parseInt(req.params.id);
+        const valores = req.body;
+
+        Atendimentos.altera(id, valores, res);
     });
 }
