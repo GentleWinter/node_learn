@@ -58,10 +58,10 @@ class Atendimentos {
     }
 
     buscaId(id, res){
-        const sql = `SELECT * FROM Atendimento WHERE id= ${id}`;
+        const sql = `SELECT * FROM Atendimentos WHERE id = ${id}`;
 
         conexao.query(sql, (erro, resultados) =>{
-            const atendiemto = resultados[0];
+            const atendimeto = resultados[0];
             if(erro){
                 res.status(500).json(erro);
             }else{
